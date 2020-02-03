@@ -1,6 +1,8 @@
 /*
  * functionality:
- * 	working with big Numbers
+ * 	calculating with big Numbers: int, long, BigInteger
+ * 
+ *
  * 
  * author:
  * markus.gradl@ymail.com
@@ -27,7 +29,7 @@ public class Numerics {
 		System.out.println("Potenzen mit int:");
 		int potenz = 8;
 		System.out.println("2^8: \t\t\t" + (int)(Math.pow(2, potenz)));
-		System.out.println("\tType: " + ((int)(Math.pow(2, potenz))));
+//		System.out.println("\tType: " + ((int)(Math.pow(2, potenz))));
 		potenz = 16;
 		System.out.println("2^16: \t\t\t" + (int)(Math.pow(2, potenz)));
 		potenz = 30;
@@ -41,12 +43,22 @@ public class Numerics {
 		potenz = 64;
 		System.out.println("2^" + potenz + ": \t\t\t" + (Math.pow(2, potenz)) + "\t\trounded");
 		
-			
+		//long
+		System.out.println("\nPower with long:");
+		potenz = 31;
+		System.out.println("2^" + potenz + ": \t\t\t" + (long)(Math.pow(2, potenz)) + "\t\ttrue");
+		potenz = 32;
+		System.out.println("2^" + potenz + ": \t\t\t" + (long)(Math.pow(2, potenz)) + "\t\ttrue");
+		potenz = 64;
+		System.out.println("2^" + potenz + ": \t\t\t" + (long)(Math.pow(2, potenz)) + "\t\tfalse");
+		potenz = 128;
+		System.out.println("2^" + potenz + ": \t\t\t" + (long)(Math.pow(2, potenz)) + "\t\tfalse");
+
 	
 		// Schleife BigInteger
 		BigInteger basis = BigInteger.valueOf(2L);
 		System.out.println("\nPower with BigInteger:");		// Power = basis^exponent
-		int[] array = new int[]{4, 8, 16, 31, 32, 64};
+		int[] array = new int[]{4, 8, 16, 31, 32, 64, 128};
 		for (int i: array) {
 			System.out.println("2^" + i + ": \t\t\t" + basis.pow(i));
 		}
@@ -58,15 +70,5 @@ public class Numerics {
 			String resultS = NumberFormat.getNumberInstance(Locale.US).format(resultBI);
 		    System.out.println("2^" + i + ": \t\t\t" + resultS);			
 		}
-			
-		
-		
-		potenz = 32;
-		BigInteger resultBI = basis.pow(potenz);		
-		System.out.println((long)(Math.pow(2, potenz)));
-
-		
-		
-		System.out.println("potenz ^32: " + Math.pow(2, 32));
 	}
 }
